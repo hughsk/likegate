@@ -1,0 +1,22 @@
+{
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com/)",
+  "name": "fb-canvas",
+  "description": "Small server-side validation/info for Facebook apps with a canvas page.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/fb-canvas.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/_mocha -u tdd --reporter spec"
+  },
+  "dependencies": {
+    "formidable": "1.0.x"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
