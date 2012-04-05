@@ -10,13 +10,17 @@ Small server-side validation/info for Facebook canvas apps.
 
 ## Usage
 
-    http.createServer(function(req, res) {
-    	if (req.method == 'POST') {
-    		gate(req, function(err, fields) {
-    			console.log(fields.liked); // `true` if the user has liked the page
-    			console.log(fields.admin); // `true` if the user is an admin
-    		});
-    	} else {
-    		res.end('Should be a POST request');
-    	}
-    });
+``` javascript
+var gate = require('likegate');
+
+http.createServer(function(req, res) {
+	if (req.method == 'POST') {
+		gate(req, function(err, fields) {
+			console.log(fields.liked); // `true` if the user has liked the page
+			console.log(fields.admin); // `true` if the user is an admin
+		});
+	} else {
+		res.end('Should be a POST request');
+	}
+});
+```
