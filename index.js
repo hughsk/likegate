@@ -13,7 +13,7 @@ module.exports = function(request, options, callback) {
 	}
 
 	// Support Connect
-	if (req.body) {
+	if (request.body) {
 		module.exports.processFields(callback)(null, req.body);
 	} else {
 		form.parse(request, module.exports.processFields(callback));
