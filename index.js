@@ -12,7 +12,16 @@ module.exports = function(request, options, callback) {
 		options.secret = options.secret || false;
 	}
 
-	form.parse(request, function(err, fields, files) {
+	// Support Connect
+	if (req.body) {
+		module.exports.processFields(callback)(null, req.body);
+	} else {
+		form.parse(request, module.exports.processFields(callback));
+	}
+};
+
+module.exports.processFields = function(callback) {
+	return function(err, fields) {
 		var encodedSignature,
 			payload, signature, data,
 			output, shouldContinue = true;
@@ -39,8 +48,8 @@ module.exports = function(request, options, callback) {
 		if (!shouldContinue) return;
 
 		callback(null, data);
-	});
-};
+	}
+}
 
 module.exports.decode = function(encoded) {
 	return new Buffer(encoded, 'base64')

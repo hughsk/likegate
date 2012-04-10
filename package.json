@@ -14,7 +14,9 @@
   "dependencies": {
     "formidable": "1.0.x"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "connect": "2.1.x"
+  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"
