@@ -14,7 +14,7 @@ module.exports = function(request, options, callback) {
 
 	// Support Connect
 	if (request.body) {
-		module.exports.processFields(callback)(null, req.body);
+		module.exports.processFields(callback)(null, request.body);
 	} else {
 		form.parse(request, module.exports.processFields(callback));
 	}
